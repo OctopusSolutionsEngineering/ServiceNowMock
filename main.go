@@ -2,38 +2,26 @@ package main
 
 import (
 	"log"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/mcasperson/ServiceNowMock/internal/application/handler"
 )
 
 func main() {
 	router := gin.Default()
 
 	// Handler for /api/sn_chg_rest/change
-	router.GET("/api/sn_chg_rest/change", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "Change endpoint",
-		})
-	})
+	router.GET("/api/sn_chg_rest/change", handler.Change)
 
 	// Handler for /api/sn_chg_rest/change/normal
-	router.GET("/api/sn_chg_rest/change/normal", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "Normal change endpoint",
-		})
-	})
+	router.POST("/api/sn_chg_rest/change/normal", handler.Normal)
 
 	// Handler for /api/sn_chg_rest/change/<any text>
-	router.GET("/api/sn_chg_rest/change/:id", func(c *gin.Context) {
-		id := c.Param("id")
-		c.JSON(http.StatusOK, gin.H{
-			"message": "Change endpoint with parameter",
-			"id":      id,
-		})
-	})
+	router.GET("/api/sn_chg_rest/change/:id", handler.ChangeId)
 
-	if err := router.Run(":8080"); err != nil {
+	router.PATCH("/api/sn_chg_rest/change/:id", handler.ChangeIdPatch)
+
+	if err := router.Run(":8086"); err != nil {
 		log.Fatal("Failed to start server: ", err)
 	}
 }
