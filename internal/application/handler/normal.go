@@ -469,5 +469,5 @@ func Normal(c *gin.Context) {
 	  }
 	}`, changeNumber, changeNumber, changeNumber, changeNumber, string(sysID), string(sysID))
 
-	c.JSON(http.StatusOK, response)
+	c.Data(http.StatusOK, "application/json; charset=utf-8", []byte(response))
 }

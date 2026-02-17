@@ -7,7 +7,7 @@ import (
 )
 
 func ChangeIdPatch(c *gin.Context) {
-	c.JSON(http.StatusOK, `{
+	c.Data(http.StatusOK, "application/json; charset=utf-8", []byte(`{
 	  "result": {
 		"reason": {
 		  "display_value": "",
@@ -444,5 +444,5 @@ func ChangeIdPatch(c *gin.Context) {
 		  "ignoredFields": []
 		}
 	  }
-	}`)
+	}`))
 }

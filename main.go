@@ -10,13 +10,12 @@ import (
 func main() {
 	router := gin.Default()
 
-	// Handler for /api/sn_chg_rest/change
+	router.POST("/oauth_token.do", handler.OauthToken)
+
 	router.GET("/api/sn_chg_rest/change", handler.Change)
 
-	// Handler for /api/sn_chg_rest/change/normal
 	router.POST("/api/sn_chg_rest/change/normal", handler.Normal)
 
-	// Handler for /api/sn_chg_rest/change/<any text>
 	router.GET("/api/sn_chg_rest/change/:id", handler.ChangeId)
 
 	router.PATCH("/api/sn_chg_rest/change/:id", handler.ChangeIdPatch)

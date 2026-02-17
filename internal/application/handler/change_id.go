@@ -17,7 +17,7 @@ func ChangeId(c *gin.Context) {
 		state = "Implement"
 	}
 
-	c.JSON(http.StatusOK, `{
+	c.Data(http.StatusOK, "application/json; charset=utf-8", []byte(`{
 	  "result": {
 		"reason": {
 		  "display_value": "",
@@ -451,5 +451,5 @@ func ChangeId(c *gin.Context) {
 		  "value": ""
 		}
 	  }
-	}`)
+	}`))
 }

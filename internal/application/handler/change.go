@@ -15,7 +15,7 @@ func Change(c *gin.Context) {
 	// Remove the surrounding quotes added by json.Marshal
 	escapedQueryStr := string(escapedQuery[1 : len(escapedQuery)-1])
 
-	c.JSON(http.StatusOK, `{
+	c.Data(http.StatusOK, "application/json; charset=utf-8", []byte(`{
 		"result": [
 			{
 				"__meta": {
@@ -29,5 +29,5 @@ func Change(c *gin.Context) {
 				}
 			}
 		]
-	}`)
+	}`))
 }
