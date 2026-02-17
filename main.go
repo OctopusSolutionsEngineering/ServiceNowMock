@@ -12,6 +12,8 @@ func main() {
 
 	router.POST("/oauth_token.do", handler.OauthToken)
 
+	router.GET("change_request.do", handler.View)
+
 	router.GET("/api/sn_chg_rest/change", handler.Change)
 
 	router.POST("/api/sn_chg_rest/change/normal", handler.Normal)
