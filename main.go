@@ -18,6 +18,8 @@ func main() {
 
 	router.POST("/api/sn_chg_rest/change/normal", handler.Normal)
 
+	router.POST("/api/sn_chg_rest/change/emergency", handler.Emergency)
+
 	router.GET("/api/sn_chg_rest/change/:id", handler.ChangeId)
 
 	router.PATCH("/api/sn_chg_rest/change/:id", handler.ChangeIdPatch)
