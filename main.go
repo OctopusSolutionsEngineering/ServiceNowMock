@@ -10,6 +10,8 @@ import (
 func main() {
 	router := gin.Default()
 
+	router.GET("/", handler.Root)
+
 	router.POST("/oauth_token.do", handler.OauthToken)
 
 	router.GET("change_request.do", handler.View)
