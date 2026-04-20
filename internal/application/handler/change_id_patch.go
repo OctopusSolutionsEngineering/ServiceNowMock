@@ -7,7 +7,7 @@ import (
 )
 
 func ChangeIdPatch(c *gin.Context) {
-	id := c.Param("id")
+	id := "CHG0030001"
 
 	c.Data(http.StatusOK, "application/json; charset=utf-8", []byte(`{
 	  "result": {
