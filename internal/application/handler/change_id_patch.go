@@ -7,6 +7,8 @@ import (
 )
 
 func ChangeIdPatch(c *gin.Context) {
+	id := c.Param("id")
+
 	c.Data(http.StatusOK, "application/json; charset=utf-8", []byte(`{
 	  "result": {
 		"reason": {
@@ -43,8 +45,8 @@ func ChangeIdPatch(c *gin.Context) {
 		  "value": ""
 		},
 		"number": {
-		  "display_value": "CHG0030001",
-		  "value": "CHG0030001"
+		  "display_value": "`+id+`",
+		  "value": "`+id+`"
 		},
 		"cab_delegate": {
 		  "display_value": "",
@@ -251,8 +253,8 @@ func ChangeIdPatch(c *gin.Context) {
 		  "value": "Not Run"
 		},
 		"task_effective_number": {
-		  "display_value": "CHG0030001",
-		  "value": "CHG0030001"
+		  "display_value": "`+id+`",
+		  "value": "`+id+`"
 		},
 		"sys_updated_by": {
 		  "display_value": "octopus",

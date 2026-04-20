@@ -53,8 +53,8 @@ func ChangeId(c *gin.Context) {
 		  "value": ""
 		},
 		"number": {
-		  "display_value": "CHG0030001",
-		  "value": "CHG0030001"
+		  "display_value": "`+id+`",
+		  "value": "`+id+`"
 		},
 		"cab_delegate": {
 		  "display_value": "",
@@ -261,8 +261,8 @@ func ChangeId(c *gin.Context) {
 		  "value": "Not Run"
 		},
 		"task_effective_number": {
-		  "display_value": "CHG0030001",
-		  "value": "CHG0030001"
+		  "display_value": "`+id+`",
+		  "value": "`+id+`"
 		},
 		"sys_updated_by": {
 		  "display_value": "admin",
