@@ -9,6 +9,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+var CrDatabase map[string]string = make(map[string]string)
+
 func Normal(c *gin.Context) {
 	var bodyMap map[string]interface{}
 
@@ -29,6 +31,8 @@ func Normal(c *gin.Context) {
 	for i := range sysID {
 		sysID[i] = charset[r.Intn(len(charset))]
 	}
+
+	CrDatabase[string(sysID)] = changeNumber
 
 	response := fmt.Sprintf(`{
 	  "result": {

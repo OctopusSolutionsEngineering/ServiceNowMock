@@ -7,7 +7,13 @@ import (
 )
 
 func ChangeIdPatch(c *gin.Context) {
-	id := "CHG0030001"
+	id := c.Param("id")
+
+	cr, ok := CrDatabase[id]
+
+	if !ok {
+		cr = "CHG0030001"
+	}
 
 	c.Data(http.StatusOK, "application/json; charset=utf-8", []byte(`{
 	  "result": {
@@ -45,8 +51,8 @@ func ChangeIdPatch(c *gin.Context) {
 		  "value": ""
 		},
 		"number": {
-		  "display_value": "`+id+`",
-		  "value": "`+id+`"
+		  "display_value": "`+cr+`",
+		  "value": "`+cr+`"
 		},
 		"cab_delegate": {
 		  "display_value": "",
@@ -253,8 +259,8 @@ func ChangeIdPatch(c *gin.Context) {
 		  "value": "Not Run"
 		},
 		"task_effective_number": {
-		  "display_value": "`+id+`",
-		  "value": "`+id+`"
+		  "display_value": "`+cr+`",
+		  "value": "`+cr+`"
 		},
 		"sys_updated_by": {
 		  "display_value": "octopus",

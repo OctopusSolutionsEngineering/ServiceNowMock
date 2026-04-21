@@ -10,6 +10,12 @@ import (
 func ChangeId(c *gin.Context) {
 	id := c.Param("id")
 
+	cr, ok := CrDatabase[id]
+
+	if !ok {
+		cr = "CHG0030001"
+	}
+
 	implemented := domain.CheckChangeRequest(id)
 
 	state := "New"
@@ -53,8 +59,8 @@ func ChangeId(c *gin.Context) {
 		  "value": ""
 		},
 		"number": {
-		  "display_value": "`+id+`",
-		  "value": "`+id+`"
+		  "display_value": "`+cr+`",
+		  "value": "`+cr+`"
 		},
 		"cab_delegate": {
 		  "display_value": "",
@@ -261,8 +267,8 @@ func ChangeId(c *gin.Context) {
 		  "value": "Not Run"
 		},
 		"task_effective_number": {
-		  "display_value": "`+id+`",
-		  "value": "`+id+`"
+		  "display_value": "`+cr+`",
+		  "value": "`+cr+`"
 		},
 		"sys_updated_by": {
 		  "display_value": "admin",

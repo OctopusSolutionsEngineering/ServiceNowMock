@@ -30,6 +30,8 @@ func Emergency(c *gin.Context) {
 		sysID[i] = charset[r.Intn(len(charset))]
 	}
 
+	CrDatabase[string(sysID)] = changeNumber
+
 	response := fmt.Sprintf(`{
 	  "result": {
 		"reason": {
